@@ -61,7 +61,7 @@ set(imguiSources
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/examples/imgui_impl_opengl3.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/examples/imgui_impl_opengl3.h)
    
-add_library(imgui ${imguiSources})
+add_library(imgui STATIC ${imguiSources})
 target_link_libraries(imgui gl3w)
 target_compile_definitions(imgui PUBLIC IMGUI_IMPL_OPENGL_LOADER_GL3W)
 target_include_directories(imgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
