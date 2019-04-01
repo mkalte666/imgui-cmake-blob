@@ -34,6 +34,7 @@ set(gl3wSource ${gl3wTargetDir}/src/gl3w.c)
 find_package(Python COMPONENTS Interpreter REQUIRED)
 if(Python_Interpreter_FOUND)
     message("Generating gl3w with Python ${Python_VERSION} into ${gl3wTargetDir}")
+    file(MAKE_DIRECTORY ${gl3wTargetDir})
     execute_process(COMMAND ${Python_EXECUTABLE} ${gl3wGen} --root=${gl3wTargetDir} --ext
         WORKING_DIRECTORY ${gl3wTargetDir})
 endif(Python_Interpreter_FOUND)
