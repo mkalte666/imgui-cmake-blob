@@ -41,6 +41,7 @@ endif(Python_Interpreter_FOUND)
 
 add_library(gl3w STATIC ${gl3wSource})
 target_include_directories(gl3w PUBLIC ${gl3wIncludeDir})
+set_property(TARGET gl3w PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 # imgui 
 find_package(SDL2 REQUIRED)
@@ -67,5 +68,6 @@ target_link_libraries(imgui gl3w)
 target_compile_definitions(imgui PUBLIC IMGUI_IMPL_OPENGL_LOADER_GL3W)
 target_include_directories(imgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
 target_include_directories(imgui PRIVATE ${SDL2_INCLUDE_DIR})
+set_property(TARGET imgui PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 # done! i think...
