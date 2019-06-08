@@ -41,6 +41,9 @@ endif(Python_Interpreter_FOUND)
 
 add_library(gl3w STATIC ${gl3wSource})
 target_include_directories(gl3w PUBLIC ${gl3wIncludeDir})
+if(NOT WIN32)
+    target_link_libraries(gl3w dl)
+endif()
 set_property(TARGET gl3w PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 # imgui 
