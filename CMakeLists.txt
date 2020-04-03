@@ -69,7 +69,7 @@ set(imguiSources
 add_library(imgui STATIC ${imguiSources})
 target_link_libraries(imgui gl3w)
 target_compile_definitions(imgui PUBLIC IMGUI_IMPL_OPENGL_LOADER_GL3W)
-target_include_directories(imgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
+target_include_directories(imgui SYSTEM PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui/)
 target_include_directories(imgui PRIVATE ${SDL2_INCLUDE_DIR})
 set_property(TARGET imgui PROPERTY POSITION_INDEPENDENT_CODE ON)
 
